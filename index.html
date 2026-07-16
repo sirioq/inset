@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI in the Classroom — Westminster Inset 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --pink:       #d9538e;
+      --pink-dark:  #b03872;
+      --pink-soft:  #f5c6dc;
+      --pink-bg:    #fdf2f6;
+      --grey-900:   #18181f;
+      --grey-800:   #2a2a38;
+      --grey-700:   #3a3a4a;
+      --grey-500:   #6e6e82;
+      --grey-300:   #d0d0dc;
+      --grey-100:   #f0f0f5;
+      --grey-50:    #f8f8fb;
+      --white:      #ffffff;
+      --radius:     14px;
+      --trans:      0.22s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--grey-900);
+      color: var(--grey-900);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 5vw, 4rem);
+      position: relative;
+      overflow: hidden;
+      background: var(--grey-900);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -150px; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(217,83,142,0.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-logo {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      color: var(--white);
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--pink);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      position: relative;
+      margin-bottom: 3.5rem;
+    }
+
+    .hero-meta-line {
+      font-size: clamp(0.9rem, 2vw, 1.05rem);
+      color: rgba(255,255,255,0.45);
+      font-weight: 300;
+      letter-spacing: 0.03em;
+    }
+
+    .hero-meta-line.name {
+      color: rgba(255,255,255,0.7);
+      font-weight: 400;
+    }
+
+    .hero-scroll {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+      text-decoration: none;
+    }
+
+    .hero-scroll span {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .scroll-arrow {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.9rem;
+      animation: bounce 2s infinite;
+      transition: border-color var(--trans), color var(--trans);
+    }
+
+    .hero-scroll:hover .scroll-arrow {
+      border-color: var(--pink);
+      color: var(--pink);
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(5px); }
+    }
+
+    /* ── CASE STUDIES SECTION ── */
+    .studies {
+      background: var(--grey-50);
+      padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem);
+    }
+
+    .studies-header {
+      text-align: center;
+      margin-bottom: clamp(3rem, 6vw, 5rem);
+    }
+
+    .studies-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 0.9rem;
+    }
+
+    .studies-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--grey-900);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    /* ── CASE STUDY CARDS ── */
+    .case-list {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .case-card {
+      background: var(--white);
+      border: 1px solid var(--grey-300);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: stretch;
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow var(--trans), transform var(--trans), border-color var(--trans);
+    }
+
+    .case-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.09);
+      transform: translateY(-2px);
+      border-color: var(--pink-soft);
+    }
+
+    .case-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 72px;
+      background: var(--grey-900);
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      color: rgba(255,255,255,0.15);
+      flex-shrink: 0;
+      transition: background var(--trans);
+    }
+
+    .case-card:hover .case-number {
+      background: var(--pink-dark);
+      color: rgba(255,255,255,0.5);
+    }
+
+    .case-body {
+      padding: 1.5rem 1.75rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .case-tag {
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--pink);
+    }
+
+    .case-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      color: var(--grey-900);
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    .case-desc {
+      font-size: 0.875rem;
+      color: var(--grey-500);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .case-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.3rem;
+    }
+
+    .case-tool-tag {
+      font-size: 0.67rem;
+      font-weight: 500;
+      color: var(--grey-500);
+      background: var(--grey-100);
+      border: 1px solid var(--grey-300);
+      padding: 2px 8px;
+      border-radius: 99px;
+    }
+
+    .case-arrow {
+      display: flex;
+      align-items: center;
+      padding: 0 1.5rem;
+      color: var(--pink);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      transition: transform var(--trans);
+    }
+
+    .case-card:hover .case-arrow { transform: translateX(4px); }
+
+    /* ── MODAL OVERLAY ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(18,18,24,0.85);
+      backdrop-filter: blur(6px);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      padding: 1rem;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal {
+      width: 100%;
+      max-width: 980px;
+      max-height: 90vh;
+      background: var(--grey-900);
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transform: translateY(20px) scale(0.98);
+      transition: transform 0.3s ease;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .modal-overlay.open .modal {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: none;
+      color: rgba(255,255,255,0.6);
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--trans), color var(--trans);
+      z-index: 10;
+    }
+
+    .modal-close:hover { background: rgba(255,255,255,0.15); color: white; }
+
+    /* ── PRESENTATION (inside modal) ── */
+    .pres {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      min-height: 560px;
+    }
+
+    .pres-slides {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pres-slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: clamp(2rem, 5vw, 3.5rem);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      transform: translateX(40px);
+    }
+
+    .pres-slide.active {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(0);
+    }
+
+    .pres-slide.exit {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .ps-dark  { background: var(--grey-900); }
+    .ps-light { background: var(--white); }
+    .ps-grey  { background: var(--grey-100); }
+
+    /* ── PRES NAV ── */
+    .pres-nav {
+      background: rgba(0,0,0,0.4);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+
+    .pres-nav-btn {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.6);
+      border-radius: 8px;
+      padding: 6px 16px;
+      font-family: inherit;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: background var(--trans), color var(--trans);
+    }
+
+    .pres-nav-btn:hover { background: rgba(255,255,255,0.13); color: white; }
+    .pres-nav-btn:disabled { opacity: 0.2; cursor: default; }
+
+    .pres-dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .pres-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      border: none;
+    }
+
+    .pres-dot.active {
+      background: var(--pink);
+      transform: scale(1.4);
+    }
+
+    .pres-counter {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.05em;
+      min-width: 36px;
+      text-align: center;
+    }
+
+    /* ── SLIDE CONTENT ATOMS ── */
+    .ps-eyebrow {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .ps-h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      color: var(--white);
+      text-align: center;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      margin-bottom: 1rem;
+    }
+
+    .ps-h1 em { color: var(--pink); font-style: italic; }
+
+    .ps-h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.5rem, 3.5vw, 2.6rem);
+      color: var(--grey-900);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 1.4rem;
+    }
+
+    .ps-h2-light {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .ps-sub {
+      font-size: clamp(0.85rem, 1.8vw, 1rem);
+      color: rgba(255,255,255,0.4);
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      max-width: 520px;
+    }
+
+    .ps-body {
+      font-size: clamp(0.82rem, 1.6vw, 0.95rem);
+      color: var(--grey-700);
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: 640px;
+    }
+
+    .ps-rule {
+      width: 40px; height: 2px;
+      background: var(--pink);
+      margin: 0 auto 1.5rem;
+    }
+
+    /* Two-col pain/need grid */
+    .ps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.9rem;
+      width: 100%;
+      max-width: 700px;
+    }
+
+    .ps-box {
+      border-radius: 10px;
+      padding: 1.2rem 1.4rem;
+    }
+
+    .ps-box.pain { background: #fff0f5; border: 1px solid var(--pink-soft); }
+    .ps-box.need { background: var(--grey-100); border: 1px solid var(--grey-300); }
+
+    .ps-box-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .ps-box.pain .ps-box-label { color: var(--pink); }
+    .ps-box.need .ps-box-label { color: var(--grey-500); }
+
+    .ps-box p {
+      font-size: clamp(0.78rem, 1.4vw, 0.88rem);
+      color: var(--grey-700);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .ps-box p strong { font-weight: 600; color: var(--grey-900); }
+
+    /* Tool links */
+    .ps-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+      justify-content: center;
+    }
+
+    .ps-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--pink);
+      background: var(--pink-bg);
+      border: 1px solid var(--pink-soft);
+      padding: 5px 14px;
+      border-radius: 99px;
+      text-decoration: none;
+      transition: background var(--trans), color var(--trans);
+    }
+
+    .ps-link:hover { background: var(--pink); color: white; }
+
+    /* Chat bubbles */
+    .ps-chat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      width: 100%;
+      max-width: 640px;
+    }
+
+    .ps-bubble {
+      max-width: 85%;
+      padding: 0.75rem 1rem;
+      border-radius: 14px;
+      font-size: clamp(0.78rem, 1.4vw, 0.88rem);
+      line-height: 1.6;
+    }
+
+    .ps-bubble.user {
+      align-self: flex-end;
+      background: var(--pink);
+      color: white;
+      border-bottom-right-radius: 3px;
+    }
+
+    .ps-bubble.ai {
+      align-self: flex-start;
+      background: white;
+      color: var(--grey-700);
+      border: 1px solid var(--grey-300);
+      border-bottom-left-radius: 3px;
+    }
+
+    .ps-bubble .sender {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+      opacity: 0.55;
+    }
+
+    .ps-convo-link {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+      margin-top: 0.8rem;
+      transition: color var(--trans);
+    }
+
+    .ps-convo-link:hover { color: var(--pink); }
+
+    /* Demo iframe */
+    .ps-demo-wrap {
+      width: 100%;
+      max-width: 800px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 16px 50px rgba(0,0,0,0.4);
+    }
+
+    .ps-demo-bar {
+      background: #2a2a38;
+      padding: 0.5rem 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .ps-demo-dot { width: 9px; height: 9px; border-radius: 50%; }
+    .ps-demo-dot:nth-child(1) { background: #ff5f57; }
+    .ps-demo-dot:nth-child(2) { background: #ffbd2e; }
+    .ps-demo-dot:nth-child(3) { background: #28c840; }
+
+    .ps-demo-url {
+      margin-left: 0.7rem;
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.25);
+      font-family: monospace;
+    }
+
+    .ps-demo-wrap iframe {
+      width: 100%;
+      height: 38vh;
+      border: none;
+      display: block;
+      background: white;
+    }
+
+    .ps-open-link {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--pink);
+      text-decoration: none;
+      margin-top: 0.8rem;
+      display: inline-block;
+      transition: color var(--trans);
+    }
+
+    .ps-open-link:hover { color: var(--pink-soft); }
+
+    /* bullet list */
+    .ps-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      max-width: 580px;
+      width: 100%;
+      text-align: left;
+    }
+
+    .ps-list li {
+      display: flex;
+      gap: 0.7rem;
+      font-size: clamp(0.82rem, 1.5vw, 0.95rem);
+      color: rgba(255,255,255,0.7);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    .ps-list li::before {
+      content: '→';
+      color: var(--pink);
+      flex-shrink: 0;
+      font-weight: 500;
+    }
+
+    @media (max-width: 600px) {
+      .ps-grid { grid-template-columns: 1fr; }
+      .case-number { min-width: 52px; font-size: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════
+     HERO
+════════════════════════════════ -->
+<section class="hero">
+  <img src="logo.png" alt="Sirio's Educational Tools" class="hero-logo" />
+  <p class="hero-eyebrow">Westminster School &nbsp;·&nbsp; Inset Day 2026</p>
+  <h1>AI in the<br><em>Classroom</em></h1>
+  <div class="hero-meta">
+    <span class="hero-meta-line name">Sirio Quintavalle</span>
+    <span class="hero-meta-line">Physics Department</span>
+  </div>
+  <a class="hero-scroll" href="#studies">
+    <span>Case Studies</span>
+    <div class="scroll-arrow">↓</div>
+  </a>
+</section>
+
+<!-- ═══════════════════════════════
+     CASE STUDIES
+════════════════════════════════ -->
+<section class="studies" id="studies">
+  <div class="studies-header">
+    <p class="studies-eyebrow">Five Examples</p>
+    <h2 class="studies-title">What I built, and how</h2>
+  </div>
+
+  <div class="case-list">
+
+    <a class="case-card" onclick="openCase(0); return false;" href="#">
+      <div class="case-number">1</div>
+      <div class="case-body">
+        <span class="case-tag">Physics · GCSE</span>
+        <div class="case-title">Gas Laws</div>
+        <p class="case-desc">Interactive simulations for Boyle's Law and ideal gas behaviour — built for GCSE students to explore pressure, volume and temperature relationships.</p>
+        <div class="case-tools">
+          <span class="case-tool-tag">Boyle's Law Simulation</span>
+          <span class="case-tool-tag">Gas Molecules Lab</span>
+        </div>
+      </div>
+      <div class="case-arrow">→</div>
+    </a>
+
+    <a class="case-card" onclick="openCase(1); return false;" href="#">
+      <div class="case-number">2</div>
+      <div class="case-body">
+        <span class="case-tag">Physics · A-Level · 9702</span>
+        <div class="case-title">Teaching Quantum Physics</div>
+        <p class="case-desc">Two simulations for the hardest topics in A-Level Physics — the photoelectric effect and hydrogen emission spectra — with accompanying worksheets and mark schemes.</p>
+        <div class="case-tools">
+          <span class="case-tool-tag">Photoelectric Effect</span>
+          <span class="case-tool-tag">Energy Level Diagram</span>
+        </div>
+      </div>
+      <div class="case-arrow">→</div>
+    </a>
+
+    <a class="case-card" onclick="openCase(2); return false;" href="#">
+      <div class="case-number">3</div>
+      <div class="case-body">
+        <span class="case-tag">Physics · A-Level</span>
+        <div class="case-title">Hooke Plotter</div>
+        <p class="case-desc">A purpose-built data plotting tool for students using iPads in the lab — replaces Excel with a simple, touch-friendly graph plotter with error bars and trend line analysis.</p>
+        <div class="case-tools">
+          <span class="case-tool-tag">Hooke Plotter</span>
+        </div>
+      </div>
+      <div class="case-arrow">→</div>
+    </a>
+
+    <a class="case-card" onclick="openCase(3); return false;" href="#">
+      <div class="case-number">4</div>
+      <div class="case-body">
+        <span class="case-tag">Physics · A-Level · 9702</span>
+        <div class="case-title">A-Level Revision Guide</div>
+        <p class="case-desc">Complete CIE A-Level Physics revision booklets generated with AI — definitions, formulae, worked examples, exam practice and mark schemes for the full 2025–2027 syllabus.</p>
+        <div class="case-tools">
+          <span class="case-tool-tag">CIE 9702</span>
+          <span class="case-tool-tag">Revision Booklets</span>
+        </div>
+      </div>
+      <div class="case-arrow">→</div>
+    </a>
+
+    <a class="case-card" onclick="openCase(4); return false;" href="#">
+      <div class="case-number">5</div>
+      <div class="case-body">
+        <span class="case-tag">Physics · GCSE</span>
+        <div class="case-title">Moments Activity</div>
+        <p class="case-desc">A gamified moments (torque) puzzle — students balance a ruler, solve for mystery masses, and compete on a live class leaderboard visible to the teacher in real time.</p>
+        <div class="case-tools">
+          <span class="case-tool-tag">Moments Balance Game</span>
+          <span class="case-tool-tag">Live Leaderboard</span>
+        </div>
+      </div>
+      <div class="case-arrow">→</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════
+     MODAL
+════════════════════════════════ -->
+<div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeCase()">✕</button>
+    <div class="pres" id="presContainer"></div>
+  </div>
+</div>
+
+<script>
+// ── CASE STUDY DATA ──────────────────────────────────────────────────────────
+
+const cases = [
+
+  // ── 1. GAS LAWS ──
+  { slides: [
+    { bg: 'ps-dark', html: `
+      <p class="ps-eyebrow">Case Study 1</p>
+      <div class="ps-rule"></div>
+      <h2 class="ps-h1">Gas Laws</h2>
+      <p class="ps-sub">Making abstract gas behaviour tangible for GCSE students</p>
+    `},
+    { bg: 'ps-light', html: `
+      <p class="ps-eyebrow" style="color:var(--pink)">The Problem</p>
+      <h2 class="ps-h2">Gas laws are abstract.<br>Students needed to <em style="font-style:italic">see</em> them.</h2>
+      <div class="ps-grid">
+        <div class="ps-box pain">
+          <div class="ps-box-label">The friction</div>
+          <p>Textbook diagrams of gas molecules are static. Students struggle to connect <strong>particle behaviour</strong> to measurable quantities like pressure and temperature.</p>
+        </div>
+        <div class="ps-box need">
+          <div class="ps-box-label">What was needed</div>
+          <p>A <strong>live simulation</strong> where students could manipulate variables and watch the particles respond — and plot their own p–V and p–T graphs in real time.</p>
+        </div>
+      </div>
+    `},
+    { bg: 'ps-dark', html: `
+      <h2 class="ps-h2-light">The tools</h2>
+      <p class="ps-sub">Two simulations, each taking under an hour to build with AI</p>
+      <div class="ps-links">
+        <a class="ps-link" href="https://sirioq.github.io/boyles_law/" target="_blank">↗ Boyle's Law Simulation</a>
+        <a class="ps-link" href="https://sirioq.github.io/gas_laws/" target="_blank">↗ Gas Molecules Lab</a>
+      </div>
+      <div class="ps-demo-wrap" style="margin-top:1.2rem">
+        <div class="ps-demo-bar">
+          <div class="ps-demo-dot"></div><div class="ps-demo-dot"></div><div class="ps-demo-dot"></div>
+          <span class="ps-demo-url">sirioq.github.io/boyles_law</span>
+        </div>
+        <iframe src="https://sirioq.github.io/boyles_law/" loading="lazy"></iframe>
+      </div>
+    `},
+  ]},
+
+  // ── 2. QUANTUM PHYSICS ──
+  { slides: [
+    { bg: 'ps-dark', html: `
+      <p class="ps-eyebrow">Case Study 2</p>
+      <div class="ps-rule"></div>
+      <h2 class="ps-h1">Teaching<br><em>Quantum Physics</em></h2>
+      <p class="ps-sub">Bringing the hardest A-Level topics to life</p>
+    `},
+    { bg: 'ps-light', html: `
+      <p class="ps-eyebrow" style="color:var(--pink)">The Problem</p>
+      <h2 class="ps-h2">Quantum Physics is<br>counterintuitive by nature.</h2>
+      <div class="ps-grid">
+        <div class="ps-box pain">
+          <div class="ps-box-label">The friction</div>
+          <p>Topics like the photoelectric effect and emission spectra are <strong>impossible to observe directly</strong> in a school lab, and static diagrams don't convey the physics.</p>
+        </div>
+        <div class="ps-box need">
+          <div class="ps-box-label">What was needed</div>
+          <p>Interactive simulations where students could <strong>adjust variables and observe the consequences</strong> — paired with structured worksheets to guide the investigation.</p>
+        </div>
+      </div>
+    `},
+    { bg: 'ps-dark', html: `
+      <h2 class="ps-h2-light">The tools</h2>
+      <p class="ps-sub">Two simulations with accompanying worksheets and mark schemes</p>
+      <div class="ps-links">
+        <a class="ps-link" href="https://sirioq.github.io/photoelectric/" target="_blank">↗ Photoelectric Effect</a>
+        <a class="ps-link" href="https://sirioq.github.io/energy_levels/" target="_blank">↗ Energy Level Diagram</a>
+        <a class="ps-link" href="https://sirioq.github.io/photoelectric/Photoelectric%20Effect%20%E2%80%94%20Simulation%20Worksheet.pdf" target="_blank">↓ Worksheet</a>
+        <a class="ps-link" href="https://sirioq.github.io/photoelectric/Photoelectric%20Effect%20%E2%80%94%20Simulation%20markscheme.pdf" target="_blank">↓ Mark Scheme</a>
+      </div>
+      <div class="ps-demo-wrap" style="margin-top:1.2rem">
+        <div class="ps-demo-bar">
+          <div class="ps-demo-dot"></div><div class="ps-demo-dot"></div><div class="ps-demo-dot"></div>
+          <span class="ps-demo-url">sirioq.github.io/photoelectric</span>
+        </div>
+        <iframe src="https://sirioq.github.io/photoelectric/" loading="lazy"></iframe>
+      </div>
+    `},
+  ]},
+
+  // ── 3. HOOKE PLOTTER ──
+  { slides: [
+    { bg: 'ps-dark', html: `
+      <p class="ps-eyebrow">Case Study 3</p>
+      <div class="ps-rule"></div>
+      <h2 class="ps-h1">Hooke<br><em>Plotter</em></h2>
+      <p class="ps-sub">A data plotting tool built for iPads in the Physics lab</p>
+    `},
+    { bg: 'ps-light', html: `
+      <p class="ps-eyebrow" style="color:var(--pink)">The Problem</p>
+      <h2 class="ps-h2">Students needed to plot<br>experimental data on iPads.<br>Excel wasn't the answer.</h2>
+      <div class="ps-grid">
+        <div class="ps-box pain">
+          <div class="ps-box-label">The friction</div>
+          <p>Excel on an iPad is <strong>cumbersome</strong> — fiddly input, poor touch support, and a steep learning curve that gets in the way of the actual Physics.</p>
+        </div>
+        <div class="ps-box need">
+          <div class="ps-box-label">What was needed</div>
+          <p>Something <strong>simple, touch-friendly and purpose-built</strong> — handling error bars, trend lines and gradients without any spreadsheet overhead.</p>
+        </div>
+      </div>
+    `},
+    { bg: 'ps-grey', html: `
+      <p class="ps-eyebrow" style="color:var(--grey-500)">The Process</p>
+      <h2 class="ps-h2">Start simple. Refine as you go.</h2>
+      <div class="ps-chat">
+        <div class="ps-bubble user">
+          <div class="sender">Me</div>
+          I need a graph plotting program. I want to enter data from an experiment and then plot a scatter graph with an appropriate trend line.
+        </div>
+        <div class="ps-bubble ai">
+          <div class="sender">Claude</div>
+          Here's a graph plotter — enter your data points and it'll plot a scatter graph and fit a trend line. I've included linear, quadratic, exponential and power law fits with gradient and equation readouts.
+        </div>
+        <div class="ps-bubble user">
+          <div class="sender">Me</div>
+          It's the right idea but I want a cleaner look — white background and less technical looking.
+        </div>
+        <div class="ps-bubble ai">
+          <div class="sender">Claude</div>
+          Redesigned with a clean white layout. From here we kept refining — adding error bars, ×10ⁿ axis labels, a max gradient line, and image export. Each feature was one more prompt.
+        </div>
+      </div>
+      <a class="s3-convo-link" href="https://claude.ai/share/20fa651f-ea17-47d4-bba0-20b929cf698b" target="_blank" style="font-size:0.75rem;color:var(--grey-500);text-decoration:none;margin-top:0.8rem;display:inline-block;">↗ View full conversation (requires Claude login)</a>
+    `},
+    { bg: 'ps-dark', html: `
+      <p class="ps-eyebrow">The Result</p>
+      <h2 class="ps-h2-light">Hooke Plotter</h2>
+      <p class="ps-sub">Live, on any iPad, right now</p>
+      <div class="ps-demo-wrap">
+        <div class="ps-demo-bar">
+          <div class="ps-demo-dot"></div><div class="ps-demo-dot"></div><div class="ps-demo-dot"></div>
+          <span class="ps-demo-url">sirioq.github.io/Hooke-plotter</span>
+        </div>
+        <iframe src="https://sirioq.github.io/Hooke-plotter/" loading="lazy"></iframe>
+      </div>
+      <a class="ps-open-link" href="https://sirioq.github.io/Hooke-plotter/" target="_blank">↗ Open full screen</a>
+    `},
+  ]},
+
+  // ── 4. REVISION GUIDE ──
+  { slides: [
+    { bg: 'ps-dark', html: `
+      <p class="ps-eyebrow">Case Study 4</p>
+      <div class="ps-rule"></div>
+      <h2 class="ps-h1">A-Level<br><em>Revision Guide</em></h2>
+      <p class="ps-sub">AI-generated booklets for the full CIE 9702 syllabus</p>
+    `},
+    { bg: 'ps-light', html: `
+      <p class="ps-eyebrow" style="color:var(--pink)">The Problem</p>
+      <h2 class="ps-h2">Good revision materials<br>take weeks to write.</h2>
+      <div class="ps-grid">
+        <div class="ps-box pain">
+          <div class="ps-box-label">The friction</div>
+          <p>Creating comprehensive, exam-ready revision booklets for every topic in A-Level Physics is an <strong>enormous time investment</strong> that most teachers simply don't have.</p>
+        </div>
+        <div class="ps-box need">
+          <div class="ps-box-label">What was needed</div>
+          <p>Topic-by-topic booklets with <strong>definitions, formulae, worked examples, exam questions and mark schemes</strong> — all aligned to the 2025–2027 syllabus.</p>
+        </div>
+      </div>
+    `},
+    { bg: 'ps-dark', html: `
+      <h2 class="ps-h2-light">The Result</h2>
+      <p class="ps-sub">Full syllabus coverage — downloadable as individual topics or a single combined PDF</p>
+      <ul class="ps-list">
+        <li>Every topic in the CIE 9702 syllabus covered</li>
+        <li>Definitions, key equations and worked examples per topic</li>
+        <li>Exam-style practice questions with mark schemes</li>
+        <li>Available as individual PDFs or one combined download</li>
+      </ul>
+      <div class="ps-links" style="margin-top:1.4rem">
+        <a class="ps-link" href="https://sirioq.github.io/CIE-A-level-Revision-Guide/" target="_blank">↗ Open Revision Guide</a>
+      </div>
+    `},
+  ]},
+
+  // ── 5. MOMENTS ──
+  { slides: [
+    { bg: 'ps-dark', html: `
+      <p class="ps-eyebrow">Case Study 5</p>
+      <div class="ps-rule"></div>
+      <h2 class="ps-h1">Moments<br><em>Activity</em></h2>
+      <p class="ps-sub">A gamified class activity with a live teacher leaderboard</p>
+    `},
+    { bg: 'ps-light', html: `
+      <p class="ps-eyebrow" style="color:var(--pink)">The Problem</p>
+      <h2 class="ps-h2">Moments is a topic students<br>find dry on paper.</h2>
+      <div class="ps-grid">
+        <div class="ps-box pain">
+          <div class="ps-box-label">The friction</div>
+          <p>Textbook moments problems are <strong>repetitive and abstract</strong>. Students go through the motions without really developing physical intuition for balance and torque.</p>
+        </div>
+        <div class="ps-box need">
+          <div class="ps-box-label">What was needed</div>
+          <p>A <strong>puzzle-based activity</strong> where students physically place weights on a ruler, solve for mystery masses, and feel the satisfaction of getting it to balance.</p>
+        </div>
+      </div>
+    `},
+    { bg: 'ps-dark', html: `
+      <h2 class="ps-h2-light">The Result</h2>
+      <p class="ps-sub">A game with a live class leaderboard — students compete, teachers watch in real time</p>
+      <ul class="ps-list">
+        <li>Touch-friendly ruler simulation — tap to place weights</li>
+        <li>Progressively harder levels with mystery mass challenges</li>
+        <li>Live leaderboard updates every 15 seconds for the teacher</li>
+        <li>Students join with a class code — no login required</li>
+      </ul>
+      <div class="ps-links" style="margin-top:1.4rem">
+        <a class="ps-link" href="https://sirioq.github.io/moments/" target="_blank">↗ Open Moments Activity</a>
+      </div>
+    `},
+    { bg: 'ps-dark', html: `
+      <p class="ps-eyebrow">Live Demo</p>
+      <h2 class="ps-h2-light">Try it now</h2>
+      <div class="ps-demo-wrap">
+        <div class="ps-demo-bar">
+          <div class="ps-demo-dot"></div><div class="ps-demo-dot"></div><div class="ps-demo-dot"></div>
+          <span class="ps-demo-url">sirioq.github.io/moments</span>
+        </div>
+        <iframe src="https://sirioq.github.io/moments/" loading="lazy"></iframe>
+      </div>
+      <a class="ps-open-link" href="https://sirioq.github.io/moments/" target="_blank">↗ Open full screen</a>
+    `},
+  ]},
+
+];
+
+// ── MODAL LOGIC ───────────────────────────────────────────────────────────────
+
+let activePres = null;
+
+function openCase(idx) {
+  const c = cases[idx];
+  let cur = 0;
+
+  function render() {
+    const container = document.getElementById('presContainer');
+    container.innerHTML = `
+      <div class="pres-slides" id="presSlides"></div>
+      <div class="pres-nav">
+        <button class="pres-nav-btn" id="pPrev" onclick="presGo(-1)">← Back</button>
+        <div class="pres-dots" id="presDots"></div>
+        <span class="pres-counter" id="presCounter">1 / ${c.slides.length}</span>
+        <button class="pres-nav-btn" id="pNext" onclick="presGo(1)">Next →</button>
+      </div>
+    `;
+
+    const slidesEl = document.getElementById('presSlides');
+    c.slides.forEach((s, i) => {
+      const el = document.createElement('div');
+      el.className = `pres-slide ${s.bg}${i === 0 ? ' active' : ''}`;
+      el.innerHTML = s.html;
+      slidesEl.appendChild(el);
+    });
+
+    const dotsEl = document.getElementById('presDots');
+    c.slides.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'pres-dot' + (i === 0 ? ' active' : '');
+      d.onclick = () => presGoTo(i);
+      dotsEl.appendChild(d);
+    });
+
+    updatePresNav();
+  }
+
+  function presGoTo(n) {
+    const slides = document.querySelectorAll('.pres-slide');
+    slides[cur].classList.remove('active');
+    slides[cur].classList.add('exit');
+    setTimeout(() => slides[cur] && slides[cur].classList.remove('exit'), 300);
+    cur = n;
+    slides[cur].classList.add('active');
+    document.querySelectorAll('.pres-dot').forEach((d, i) => d.classList.toggle('active', i === cur));
+    document.getElementById('presCounter').textContent = `${cur + 1} / ${c.slides.length}`;
+    updatePresNav();
+  }
+
+  window.presGo = (dir) => {
+    const n = cur + dir;
+    if (n >= 0 && n < c.slides.length) presGoTo(n);
+  };
+
+  function updatePresNav() {
+    document.getElementById('pPrev').disabled = cur === 0;
+    document.getElementById('pNext').disabled = cur === c.slides.length - 1;
+  }
+
+  render();
+  activePres = { goTo: presGoTo, total: c.slides.length, getCur: () => cur };
+  document.getElementById('modalOverlay').classList.add('open');
+
+  // keyboard nav
+  document.addEventListener('keydown', presKeyHandler);
+}
+
+function presKeyHandler(e) {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') window.presGo(1);
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   window.presGo(-1);
+  if (e.key === 'Escape') closeCase();
+}
+
+function closeCase() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.removeEventListener('keydown', presKeyHandler);
+  activePres = null;
+}
+
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeCase();
+}
+</script>
+</body>
+</html>
