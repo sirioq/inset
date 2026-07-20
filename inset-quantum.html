@@ -85,6 +85,7 @@
 <a class="back-btn" id="backBtn" href="index.html#case-2">← Back</a>
 <div class="deck">
 
+  <!-- 1. TITLE -->
   <div class="slide s-dark active">
     <p class="eyebrow">Case Study 2</p>
     <div class="rule"></div>
@@ -92,33 +93,72 @@
     <p class="sub">Bringing the hardest A-Level topics to life with interactive simulations</p>
   </div>
 
+  <!-- 2. PROBLEM -->
   <div class="slide s-light" data-theme="light">
     <p class="eyebrow">The Problem</p>
     <h2 class="h2-light">Quantum Physics is counterintuitive by nature.</h2>
     <div class="grid2">
       <div class="box pain"><div class="box-label">The problem</div><p>Topics like the photoelectric effect and emission spectra are <strong>impossible to observe directly</strong> in a school lab, and static diagrams don't convey the physics.</p></div>
-      <div class="box need"><div class="box-label">What was needed</div><p>Interactive simulations where students could <strong>adjust variables and observe the consequences</strong> — paired with structured worksheets to guide the investigation.</p></div>
+      <div class="box need"><div class="box-label">What was needed</div><p>Interactive simulations where students could <strong>adjust variables and observe the consequences</strong> — paired with structured lesson plans and worksheets.</p></div>
     </div>
   </div>
 
+  <!-- 3. CONVERSATION 1 — ENERGY LEVELS -->
+  <div class="slide s-grey" data-theme="light">
+    <p class="eyebrow" style="color:var(--grey-500)">The Process</p>
+    <h2 class="h2-light">Topic 22.4 — Energy Levels &amp; Spectra</h2>
+    <div class="chat">
+      <div class="bubble u">
+        <div class="s">Me</div>
+        <span style="display:flex;align-items:center;gap:0.4rem;font-size:0.72rem;opacity:0.7;margin-bottom:0.3rem;">📎 <em>CIE A-Level Physics Specification (uploaded)</em></span>
+        I'm teaching my A-level class Quantum Physics tomorrow morning! Can you give me a lesson plan and worksheet as a LaTeX PDF, as well as an interactive energy level simulation for topic 22.4?
+      </div>
+      <div class="bubble a">
+        <div class="s">Claude</div>
+        Here's everything for tomorrow — a structured lesson plan with timings and teaching notes, a student worksheet with exam-style questions, both exported as print-ready PDFs, and an interactive hydrogen energy level diagram where students can click transitions to see the emitted photon wavelength and identify the spectral series. All aligned to your CIE 9702 spec.
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. TOPIC 22.4 RESOURCES -->
   <div class="slide s-dark">
-    <p class="eyebrow">The Result</p>
-    <h2 class="h2-dark">Two simulations with worksheets and mark schemes</h2>
-    <ul class="bullets" style="margin-bottom:1.2rem">
-      <li>Photoelectric effect: adjust wavelength and intensity, measure stopping voltage</li>
-      <li>Energy level diagram: explore electron transitions and emission spectra for hydrogen</li>
-      <li>Worksheet and mark scheme PDF included for the photoelectric simulation</li>
-    </ul>
+    <p class="eyebrow">Topic 22.4 — The Result</p>
+    <h2 class="h2-dark">Lesson Plan, Worksheet &amp; Simulation</h2>
+    <p class="sub">Print-ready PDFs and a live interactive simulation — ready for tomorrow</p>
     <div class="links">
-      <a class="lnk" href="https://sirioq.github.io/photoelectric/" target="_blank">↗ Photoelectric Effect</a>
-      <a class="lnk" href="https://sirioq.github.io/energy_levels/" target="_blank">↗ Energy Levels</a>
+      <a class="lnk" href="https://github.com/sirioq/energy_levels/blob/main/lesson_plan_22_4.pdf" target="_blank">↗ Lesson Plan (full screen)</a>
+      <a class="lnk" href="https://github.com/sirioq/energy_levels/blob/main/worksheet_22_4.pdf" target="_blank">↗ Worksheet (full screen)</a>
+      <a class="lnk" href="https://sirioq.github.io/energy_levels/" target="_blank">↗ Energy Level Simulation</a>
+    </div>
+    <div class="frame-wrap" style="margin-top:1.1rem">
+      <div class="frame-bar"><div class="fd"></div><div class="fd"></div><div class="fd"></div><span class="furl">sirioq.github.io/energy_levels</span></div>
+      <iframe src="https://sirioq.github.io/energy_levels/" loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <!-- 5. CONVERSATION 2 + RESULT — PHOTOELECTRIC -->
+  <div class="slide s-grey" data-theme="light">
+    <p class="eyebrow" style="color:var(--grey-500)">Topic 22.2 — The Photoelectric Effect</p>
+    <h2 class="h2-light">One more prompt</h2>
+    <div class="chat">
+      <div class="bubble u">
+        <div class="s">Me</div>
+        Can you do the same for topic 22.2 — the photoelectric effect?
+      </div>
+      <div class="bubble a">
+        <div class="s">Claude</div>
+        Done — lesson plan, worksheet and mark scheme as PDFs, plus a photocell circuit simulation where students adjust wavelength and intensity, observe whether electrons are emitted, and measure the stopping voltage to calculate maximum kinetic energy. All aligned to CIE 9702 Topic 22.2.
+      </div>
+    </div>
+    <div class="links" style="margin-top:1rem">
+      <a class="lnk" href="https://sirioq.github.io/photoelectric/" target="_blank">↗ Photoelectric Simulation</a>
       <a class="lnk" href="https://sirioq.github.io/photoelectric/Photoelectric%20Effect%20%E2%80%94%20Simulation%20Worksheet.pdf" target="_blank">↓ Worksheet</a>
       <a class="lnk" href="https://sirioq.github.io/photoelectric/Photoelectric%20Effect%20%E2%80%94%20Simulation%20markscheme.pdf" target="_blank">↓ Mark Scheme</a>
     </div>
   </div>
 
 </div>
-<nav class="nav"><button class="nav-btn" id="prevBtn" onclick="go(-1)" disabled>←</button><div class="nav-dots" id="dots"></div><span class="nav-counter" id="counter">1 / </span><button class="nav-btn" id="nextBtn" onclick="go(1)">→</button></nav>
+<nav class="nav"><button class="nav-btn" id="prevBtn" onclick="go(-1)" disabled>←</button><div class="nav-dots" id="dots"></div><span class="nav-counter" id="counter">1 / 5</span><button class="nav-btn" id="nextBtn" onclick="go(1)">→</button></nav>
 <script>  const slides = document.querySelectorAll('.slide');
   const dotsEl = document.getElementById('dots');
   const counter = document.getElementById('counter');
