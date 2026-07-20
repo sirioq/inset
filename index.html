@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI in the Classroom — Westminster Inset 2026</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
@@ -51,8 +52,8 @@
     .case-list { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.2rem; }
     .case-card { background: var(--white); border: 1px solid var(--grey-300); border-radius: var(--radius); display: flex; align-items: stretch; overflow: hidden; cursor: pointer; text-decoration: none; color: inherit; transition: box-shadow var(--trans), transform var(--trans), border-color var(--trans); }
     .case-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.09); transform: translateY(-2px); border-color: var(--pink-soft); }
-    .case-number { display: flex; align-items: center; justify-content: center; min-width: 72px; background: var(--grey-900); font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: rgba(255,255,255,0.15); flex-shrink: 0; transition: background var(--trans); }
-    .case-card:hover .case-number { background: var(--pink-dark); color: rgba(255,255,255,0.5); }
+    .case-number { display: flex; align-items: center; justify-content: center; min-width: 72px; background: var(--pink-bg); border-right: 1px solid var(--pink-soft); font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--pink-soft); flex-shrink: 0; transition: background var(--trans); }
+    .case-card:hover .case-number { background: var(--pink); color: rgba(255,255,255,0.6); border-right-color: var(--pink); }
     .case-body { padding: 1.5rem 1.75rem; flex: 1; display: flex; flex-direction: column; gap: 0.4rem; }
     .case-tag { font-size: 0.67rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--pink); }
     .case-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.1rem,2.5vw,1.4rem); color: var(--grey-900); letter-spacing: -0.01em; line-height: 1.2; }
