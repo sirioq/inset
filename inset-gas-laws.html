@@ -71,12 +71,23 @@
     .open-link:hover { color:var(--pink-soft); }
     @media(max-width:600px){ .grid2{grid-template-columns:1fr} }
 
+    .nav.on-light { background:rgba(0,0,0,0.07); border-color:rgba(0,0,0,0.12); }
+    .nav.on-light .nav-btn { color:rgba(0,0,0,0.5); }
+    .nav.on-light .nav-btn:hover { color:var(--grey-900); background:rgba(0,0,0,0.08); }
+    .nav.on-light .nav-dot { background:rgba(0,0,0,0.15); }
+    .nav.on-light .nav-dot.active { background:var(--pink); }
+    .nav.on-light .nav-counter { color:rgba(0,0,0,0.3); }
+    .back-btn.on-light { color:rgba(0,0,0,0.4); background:rgba(0,0,0,0.05); border-color:rgba(0,0,0,0.12); }
+    .back-btn.on-light:hover { color:var(--grey-900); background:rgba(0,0,0,0.09); }
+
+
   </style>
 </head>
 <body>
-<a class="back-btn" href="index.html">← Back</a>
+<a class="back-btn" id="backBtn" href="index.html#case-1">← Back</a>
 <div class="deck">
 
+  <!-- 1. TITLE -->
   <div class="slide s-dark active">
     <p class="eyebrow">Case Study 1</p>
     <div class="rule"></div>
@@ -84,31 +95,68 @@
     <p class="sub">Making abstract gas behaviour tangible for GCSE students</p>
   </div>
 
-  <div class="slide s-light">
+  <!-- 2. PROBLEM 1 -->
+  <div class="slide s-light" data-theme="light">
     <p class="eyebrow">The Problem</p>
-    <h2 class="h2-light">Gas laws are abstract. Students needed to <em style="font-style:italic;color:var(--pink)">see</em> them.</h2>
+    <h2 class="h2-light">Gas laws are abstract.<br>Students needed to <em style="font-style:italic;color:var(--pink)">see</em> them.</h2>
     <div class="grid2">
-      <div class="box pain"><div class="box-label">The friction</div><p>Textbook diagrams of gas molecules are static. Students struggle to connect <strong>particle behaviour</strong> to measurable quantities like pressure and temperature.</p></div>
-      <div class="box need"><div class="box-label">What was needed</div><p>A <strong>live simulation</strong> where students could manipulate variables and watch particles respond — and plot their own p–V and p–T graphs in real time.</p></div>
+      <div class="box pain"><div class="box-label">The friction</div><p>Textbook diagrams of gas molecules are static. Students struggle to connect <strong>particle behaviour</strong> to measurable quantities like pressure.</p></div>
+      <div class="box need"><div class="box-label">What was needed</div><p>A <strong>live simulation</strong> where compressing a gas causes particles to collide more frequently — making pressure tangible rather than abstract.</p></div>
     </div>
   </div>
 
+  <!-- 3. CONVERSATION 1 -->
+  <div class="slide s-grey" data-theme="light">
+    <p class="eyebrow" style="color:var(--grey-500)">The Process</p>
+    <h2 class="h2-light">Building Boyle's Law — the conversation</h2>
+    <div class="chat">
+      <div class="bubble u"><div class="s">Me</div>Make me a physics simulation to explain Boyle's law to GCSE students as an html file.</div>
+      <div class="bubble a"><div class="s">Claude</div>Here's a Boyle's Law simulation — students drag a piston to compress the gas, and watch the pressure rise in real time as the molecules hit the walls more frequently. The p×V product stays constant and is displayed live.</div>
+      <div class="bubble u"><div class="s">Me</div>Can you make the gas molecules collide with each other?</div>
+      <div class="bubble a"><div class="s">Claude</div>Done! The molecules now collide elastically with each other — when two particles overlap, they exchange velocity along the collision axis and are pushed apart, just like real billiard-ball physics. This actually makes it a better teaching tool too, since students can see that individual particles are constantly transferring energy between themselves.</div>
+    </div>
+  </div>
+
+  <!-- 4. BOYLE'S LAW RESULT -->
   <div class="slide s-dark">
     <p class="eyebrow">The Result</p>
-    <h2 class="h2-dark">Two simulations — each built in under an hour</h2>
-    <ul class="bullets" style="margin-bottom:1.2rem">
-      <li>Boyle's Law: drag a slider to compress gas and watch pressure respond live</li>
-      <li>Gas Molecules Lab: vary temperature, volume and particle count; plot p–V and p–T graphs</li>
-      <li>Structured tasks aligned to Edexcel IGCSE spec refs 5.15–5.22</li>
-    </ul>
-    <div class="links">
-      <a class="lnk" href="https://sirioq.github.io/boyles_law/" target="_blank">↗ Boyle's Law</a>
+    <h2 class="h2-dark">Boyle's Law Simulation</h2>
+    <p class="sub">Drag the slider to compress the gas — watch pressure respond and p×V stay constant</p>
+    <div class="frame-wrap">
+      <div class="frame-bar"><div class="fd"></div><div class="fd"></div><div class="fd"></div><span class="furl">sirioq.github.io/boyles_law</span></div>
+      <iframe src="https://sirioq.github.io/boyles_law/" loading="lazy"></iframe>
+    </div>
+    <a class="open-link" href="https://sirioq.github.io/boyles_law/" target="_blank">↗ Open full screen</a>
+  </div>
+
+  <!-- 5. PROBLEM 2 -->
+  <div class="slide s-light" data-theme="light">
+    <p class="eyebrow">The Next Problem</p>
+    <h2 class="h2-light">How do we get students to engage more deeply — and introduce the other gas laws?</h2>
+    <div class="grid2">
+      <div class="box pain"><div class="box-label">The friction</div><p>A simulation is engaging, but without <strong>structure students just play</strong> — they don't record data, test hypotheses, or connect what they see to the equations.</p></div>
+      <div class="box need"><div class="box-label">What was needed</div><p>A richer simulation covering <strong>pressure, volume and temperature</strong> together — with guided tasks that turn exploration into a proper practical investigation.</p></div>
+    </div>
+  </div>
+
+  <!-- 6. CONVERSATION 2 -->
+  <div class="slide s-grey" data-theme="light">
+    <p class="eyebrow" style="color:var(--grey-500)">The Process</p>
+    <h2 class="h2-light">Building the Gas Molecules Lab</h2>
+    <div class="chat">
+      <div class="bubble u"><div class="s">Me</div>
+        <span style="display:flex;align-items:center;gap:0.4rem;font-size:0.72rem;opacity:0.7;margin-bottom:0.3rem;">📎 <em>GCSE Physics Specification (uploaded)</em></span>
+        Using the attached specification for reference, can you build a full gas laws simulation lab? I want students to vary temperature, volume and number of molecules, record readings, and plot p–V and p–T graphs — with an interactive worksheet they fill in as they go.
+      </div>
+      <div class="bubble a"><div class="s">Claude</div>Here's the Gas Molecules Lab — students control temperature, volume and particle count with sliders, hit "Record Reading" to log data, then switch between a kinetic particle view, a p–V graph and a p–T graph. I've added five structured tasks and an interactive worksheet aligned to your spec refs 5.15–5.22, with guided questions and a results table students complete digitally alongside the simulation.</div>
+    </div>
+    <div class="links" style="margin-top:1rem">
       <a class="lnk" href="https://sirioq.github.io/gas_laws/" target="_blank">↗ Gas Molecules Lab</a>
     </div>
   </div>
 
 </div>
-<nav class="nav"><button class="nav-btn" id="prevBtn" onclick="go(-1)" disabled>←</button><div class="nav-dots" id="dots"></div><span class="nav-counter" id="counter">1 / </span><button class="nav-btn" id="nextBtn" onclick="go(1)">→</button></nav>
+<nav class="nav"><button class="nav-btn" id="prevBtn" onclick="go(-1)" disabled>←</button><div class="nav-dots" id="dots"></div><span class="nav-counter" id="counter">1 / 6</span><button class="nav-btn" id="nextBtn" onclick="go(1)">→</button></nav>
 <script>  const slides = document.querySelectorAll('.slide');
   const dotsEl = document.getElementById('dots');
   const counter = document.getElementById('counter');
@@ -131,6 +179,9 @@
     dotsEl.querySelectorAll('.nav-dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
     counter.textContent=`${cur+1} / ${slides.length}`;
     prevBtn.disabled=cur===0; nextBtn.disabled=cur===slides.length-1;
+    const nav=document.querySelector('.nav');
+    nav.classList.toggle('on-light', slides[cur].dataset.theme==='light');
+    document.getElementById('backBtn').classList.toggle('on-light', slides[cur].dataset.theme==='light');
   }
   function go(d){goTo(cur+d);}
   document.addEventListener('keydown',e=>{
