@@ -70,11 +70,19 @@
     .open-link { font-size:0.78rem; font-weight:500; color:var(--pink); text-decoration:none; margin-top:0.7rem; display:inline-block; }
     .open-link:hover { color:var(--pink-soft); }
     @media(max-width:600px){ .grid2{grid-template-columns:1fr} }
+    .nav.on-light { background:rgba(0,0,0,0.07); border-color:rgba(0,0,0,0.12); }
+    .nav.on-light .nav-btn { color:rgba(0,0,0,0.5); }
+    .nav.on-light .nav-btn:hover { color:var(--grey-900); background:rgba(0,0,0,0.08); }
+    .nav.on-light .nav-dot { background:rgba(0,0,0,0.15); }
+    .nav.on-light .nav-dot.active { background:var(--pink); }
+    .nav.on-light .nav-counter { color:rgba(0,0,0,0.3); }
+    .back-btn.on-light { color:rgba(0,0,0,0.4); background:rgba(0,0,0,0.05); border-color:rgba(0,0,0,0.12); }
+    .back-btn.on-light:hover { color:var(--grey-900); background:rgba(0,0,0,0.09); }
 
   </style>
 </head>
 <body>
-<a class="back-btn" href="index.html#case-2">← Back</a>
+<a class="back-btn" id="backBtn" href="index.html#case-2">← Back</a>
 <div class="deck">
 
   <div class="slide s-dark active">
@@ -84,11 +92,11 @@
     <p class="sub">Bringing the hardest A-Level topics to life with interactive simulations</p>
   </div>
 
-  <div class="slide s-light">
+  <div class="slide s-light" data-theme="light">
     <p class="eyebrow">The Problem</p>
     <h2 class="h2-light">Quantum Physics is counterintuitive by nature.</h2>
     <div class="grid2">
-      <div class="box pain"><div class="box-label">The friction</div><p>Topics like the photoelectric effect and emission spectra are <strong>impossible to observe directly</strong> in a school lab, and static diagrams don't convey the physics.</p></div>
+      <div class="box pain"><div class="box-label">The problem</div><p>Topics like the photoelectric effect and emission spectra are <strong>impossible to observe directly</strong> in a school lab, and static diagrams don't convey the physics.</p></div>
       <div class="box need"><div class="box-label">What was needed</div><p>Interactive simulations where students could <strong>adjust variables and observe the consequences</strong> — paired with structured worksheets to guide the investigation.</p></div>
     </div>
   </div>
@@ -133,6 +141,10 @@
     dotsEl.querySelectorAll('.nav-dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
     counter.textContent=`${cur+1} / ${slides.length}`;
     prevBtn.disabled=cur===0; nextBtn.disabled=cur===slides.length-1;
+    const nav=document.querySelector('.nav');
+    const isLight=slides[cur].dataset.theme==='light';
+    nav.classList.toggle('on-light',isLight);
+    document.getElementById('backBtn').classList.toggle('on-light',isLight);
   }
   function go(d){goTo(cur+d);}
   document.addEventListener('keydown',e=>{

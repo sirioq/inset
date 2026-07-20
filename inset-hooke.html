@@ -70,11 +70,19 @@
     .open-link { font-size:0.78rem; font-weight:500; color:var(--pink); text-decoration:none; margin-top:0.7rem; display:inline-block; }
     .open-link:hover { color:var(--pink-soft); }
     @media(max-width:600px){ .grid2{grid-template-columns:1fr} }
+    .nav.on-light { background:rgba(0,0,0,0.07); border-color:rgba(0,0,0,0.12); }
+    .nav.on-light .nav-btn { color:rgba(0,0,0,0.5); }
+    .nav.on-light .nav-btn:hover { color:var(--grey-900); background:rgba(0,0,0,0.08); }
+    .nav.on-light .nav-dot { background:rgba(0,0,0,0.15); }
+    .nav.on-light .nav-dot.active { background:var(--pink); }
+    .nav.on-light .nav-counter { color:rgba(0,0,0,0.3); }
+    .back-btn.on-light { color:rgba(0,0,0,0.4); background:rgba(0,0,0,0.05); border-color:rgba(0,0,0,0.12); }
+    .back-btn.on-light:hover { color:var(--grey-900); background:rgba(0,0,0,0.09); }
 
   </style>
 </head>
 <body>
-<a class="back-btn" href="index.html#case-3">← Back</a>
+<a class="back-btn" id="backBtn" href="index.html#case-3">← Back</a>
 <div class="deck">
 
   <div class="slide s-dark active">
@@ -84,16 +92,16 @@
     <p class="sub">A data plotting tool purpose-built for iPads in the Physics lab</p>
   </div>
 
-  <div class="slide s-light">
+  <div class="slide s-light" data-theme="light">
     <p class="eyebrow">The Problem</p>
     <h2 class="h2-light">Students needed to plot experimental data on iPads. Excel wasn't the answer.</h2>
     <div class="grid2">
-      <div class="box pain"><div class="box-label">The friction</div><p>Excel on an iPad is <strong>cumbersome</strong> — fiddly input, poor touch support, and a steep learning curve that gets in the way of the actual Physics.</p></div>
+      <div class="box pain"><div class="box-label">The problem</div><p>Excel on an iPad is <strong>cumbersome</strong> — fiddly input, poor touch support, and a steep learning curve that gets in the way of the actual Physics.</p></div>
       <div class="box need"><div class="box-label">What was needed</div><p>Something <strong>simple, touch-friendly and purpose-built</strong> — handling error bars, trend lines and gradients without any spreadsheet overhead.</p></div>
     </div>
   </div>
 
-  <div class="slide s-grey">
+  <div class="slide s-grey" data-theme="light">
     <p class="eyebrow" style="color:var(--grey-500)">The Process</p>
     <h2 class="h2-light">Start simple. Refine as you go.</h2>
     <div class="chat">
@@ -139,6 +147,10 @@
     dotsEl.querySelectorAll('.nav-dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
     counter.textContent=`${cur+1} / ${slides.length}`;
     prevBtn.disabled=cur===0; nextBtn.disabled=cur===slides.length-1;
+    const nav=document.querySelector('.nav');
+    const isLight=slides[cur].dataset.theme==='light';
+    nav.classList.toggle('on-light',isLight);
+    document.getElementById('backBtn').classList.toggle('on-light',isLight);
   }
   function go(d){goTo(cur+d);}
   document.addEventListener('keydown',e=>{
