@@ -85,6 +85,7 @@
 <a class="back-btn" id="backBtn" href="index.html#case-4">← Back</a>
 <div class="deck">
 
+  <!-- 1. TITLE -->
   <div class="slide s-dark active">
     <p class="eyebrow">Case Study 4</p>
     <div class="rule"></div>
@@ -92,6 +93,7 @@
     <p class="sub">AI-generated booklets for the full CIE 9702 syllabus</p>
   </div>
 
+  <!-- 2. PROBLEM -->
   <div class="slide s-light" data-theme="light">
     <p class="eyebrow">The Problem</p>
     <h2 class="h2-light">Good revision materials take weeks to write.</h2>
@@ -101,11 +103,42 @@
     </div>
   </div>
 
+  <!-- 3. CONVERSATION -->
+  <div class="slide s-dark">
+    <p class="eyebrow">The Process</p>
+    <h2 class="h2-dark">Getting the style right first</h2>
+    <p class="sub">I worked on one topic to nail the look, then applied the same stylesheet to the whole syllabus</p>
+    <div class="chat" style="max-width:580px">
+      <div class="bubble u">
+        <div class="s">Me</div>
+        <span style="display:flex;align-items:center;gap:0.4rem;font-size:0.72rem;opacity:0.7;margin-bottom:0.3rem;">📎 <em>CIE A-Level Physics Specification (uploaded)</em></span>
+        Can you write me a revision booklet for Topic 13 — Gravitational Fields — as a LaTeX PDF? Include definitions, key equations, worked examples and exam-style questions with mark schemes. I want it to look clean and professional.
+      </div>
+      <div class="bubble a">
+        <div class="s">Claude</div>
+        Here's Topic 13 as a print-ready PDF — clean layout with a consistent header, colour-coded equation boxes, worked examples with full working, and exam questions with mark schemes. Once you're happy with the style I can apply the same template to every topic in the syllabus.
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. PDF PREVIEW -->
+  <div class="slide s-dark">
+    <p class="eyebrow">Getting the Look Right</p>
+    <h2 class="h2-dark">Topic 13 — Gravitational Fields</h2>
+    <p class="sub">One chapter first to get the style right</p>
+    <div class="frame-wrap">
+      <div class="frame-bar"><div class="fd"></div><div class="fd"></div><div class="fd"></div><span class="furl">sirioq.github.io/CIE-A-level-Revision-Guide/topic_13/topic_13.pdf</span></div>
+      <iframe src="https://sirioq.github.io/CIE-A-level-Revision-Guide/topic_13/topic_13.pdf" loading="lazy"></iframe>
+    </div>
+    <a class="open-link" href="https://sirioq.github.io/CIE-A-level-Revision-Guide/topic_13/topic_13.pdf" target="_blank">↗ Open full screen</a>
+  </div>
+
+  <!-- 4. RESULT -->
   <div class="slide s-dark">
     <p class="eyebrow">The Result</p>
     <h2 class="h2-dark">Full syllabus coverage — downloadable as PDFs</h2>
     <ul class="bullets" style="margin-bottom:1.2rem">
-      <li>Every topic in the CIE 9702 syllabus covered</li>
+      <li>Every topic in the CIE 9702 syllabus covered using the same stylesheet</li>
       <li>Definitions, key equations and worked examples per topic</li>
       <li>Exam-style practice questions with mark schemes</li>
       <li>Individual topic PDFs or one combined download</li>
@@ -116,7 +149,7 @@
   </div>
 
 </div>
-<nav class="nav"><button class="nav-btn" id="prevBtn" onclick="go(-1)" disabled>←</button><div class="nav-dots" id="dots"></div><span class="nav-counter" id="counter">1 / </span><button class="nav-btn" id="nextBtn" onclick="go(1)">→</button></nav>
+<nav class="nav"><button class="nav-btn" id="prevBtn" onclick="go(-1)" disabled>←</button><div class="nav-dots" id="dots"></div><span class="nav-counter" id="counter">1 / 5</span><button class="nav-btn" id="nextBtn" onclick="go(1)">→</button></nav>
 <script>  const slides = document.querySelectorAll('.slide');
   const dotsEl = document.getElementById('dots');
   const counter = document.getElementById('counter');
