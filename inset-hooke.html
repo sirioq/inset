@@ -124,7 +124,7 @@
   </div>
 
 </div>
-<nav class="nav"><button class="nav-btn" id="prevBtn" onclick="go(-1)" disabled>←</button><div class="nav-dots" id="dots"></div><span class="nav-counter" id="counter">1 / </span><button class="nav-btn" id="nextBtn" onclick="go(1)">→</button></nav>
+<nav class="nav"><button class="nav-btn" id="prevBtn" onclick="go(-1)" disabled>←</button><div class="nav-dots" id="dots"></div><span class="nav-counter" id="counter"></span><button class="nav-btn" id="nextBtn" onclick="go(1)">→</button></nav>
 <script>  const slides = document.querySelectorAll('.slide');
   const dotsEl = document.getElementById('dots');
   const counter = document.getElementById('counter');
@@ -165,6 +165,7 @@
     if(Math.abs(d)>50) go(d>0?1:-1);
     tx=null;
   });
+  goTo(0);
 </script>
 </body>
 </html>
